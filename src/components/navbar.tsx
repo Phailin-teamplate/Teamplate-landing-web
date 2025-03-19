@@ -1,13 +1,13 @@
 import { useState, useCallback } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // For navigation handling
+// import { useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Logo from "@/public/TEAMPLATE.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   // Function for smooth scrolling
   const handleSmoothScroll = useCallback((targetId: string) => {

@@ -5,34 +5,36 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function Contactus() {
-  const googleMapsLink = "https://maps.app.goo.gl/SXU2vX1mmW5pdTGX9";
-
-  const whatsappLink = `https://wa.me/${2098270483}`;
+  // const googleMapsLink = "https://maps.app.goo.gl/SXU2vX1mmW5pdTGX9";
+  // const whatsappLink = `https://wa.me/${2098270483}`;
 
   return (
-    <div className="flex flex-col items-center text-center mt-12 md:mt-16 px-0 md:px-0 w-full scroll-mt-25 " id="contact">
+    <div
+      className="flex flex-col items-center text-center mt-12 md:mt-16 px-0 md:px-0 w-full scroll-mt-25 "
+      id="contact"
+    >
       <h2 className="text-3xl md:text-4xl font-bold text-black">
-        Let's Stay Connected
+        Let&apos;s Stay Connected
       </h2>
       <p className="text-lg text-gray-600 mt-4 max-w-3xl">
-        Stay in touch with us! We'd love to hear from you and assist you with
-        any inquiries.
+        Stay in touch with us! We&apos;d love to hear from you and assist you
+        with any inquiries.
       </p>
 
       <div className="flex flex-col items-center justify-center w-full p-6">
         <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-6xl gap-10">
           {/* Form Section */}
           <div className="w-full h-70 md:w-1/2 shadow-md rounded-xl">
-              <div className="w-full h-full ">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.4319986231066!2d102.63702987505538!3d17.96181568360307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x312466349451cc95%3A0x7b1e98b3a9ad6972!2sLao%20Youth%20Union%20-%20Cabinet%20office!5e0!3m2!1sen!2sus!4v1710757046698!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: "0" }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+            <div className="w-full h-full ">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.4319986231066!2d102.63702987505538!3d17.96181568360307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x312466349451cc95%3A0x7b1e98b3a9ad6972!2sLao%20Youth%20Union%20-%20Cabinet%20office!5e0!3m2!1sen!2sus!4v1710757046698!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: "0" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
 
