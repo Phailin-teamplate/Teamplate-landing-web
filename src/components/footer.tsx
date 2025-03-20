@@ -26,25 +26,27 @@ export default function Footer() {
           <div className="flex gap-4">
             <a
               href="#"
-              className="text-white hover:text-primary transition-colors text-lg"
+              className="text-white hover:text-gray-400  transition-colors text-lg"
             >
               <FaFacebookF />
             </a>
             <a
               href="#"
-              className="text-white hover:text-primary transition-colors text-lg"
+              className="text-white hover:text-gray-400 transition-colors text-lg"
             >
               <FaInstagram />
             </a>
             <a
               href="#"
-              className="text-white hover:text-primary transition-colors text-lg"
+              className="text-white hover:text-gray-400 transition-colors text-lg"
             >
               <FaTiktok />
             </a>
             <a
-              href="#"
-              className="text-white hover:text-primary transition-colors text-lg"
+               href={`https://wa.me/8562098270483`}
+               target="_blank"
+               rel="noopener noreferrer"
+              className="text-white hover:text-gray-400 transition-colors text-lg"
             >
               <FaWhatsapp />
             </a>

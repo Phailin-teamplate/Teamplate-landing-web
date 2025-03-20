@@ -5,20 +5,17 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function Contactus() {
-  // const googleMapsLink = "https://maps.app.goo.gl/SXU2vX1mmW5pdTGX9";
-  // const whatsappLink = `https://wa.me/${2098270483}`;
-
   return (
     <div
       className="flex flex-col items-center text-center mt-12 md:mt-16 px-0 md:px-0 w-full scroll-mt-25 "
       id="contact"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-black">
-        Let&apos;s Stay Connected
+        {`Let's Stay Connected`}
       </h2>
       <p className="text-lg text-gray-600 mt-4 max-w-3xl">
-        Stay in touch with us! We&apos;d love to hear from you and assist you
-        with any inquiries.
+        {`Stay in touch with us! We'd love to hear from you and assist you
+        with any inquiries.`}
       </p>
 
       <div className="flex flex-col items-center justify-center w-full p-6">
@@ -102,14 +99,10 @@ export default function Contactus() {
           terms and policy.
         </span>
       </p>
+      {/* Contact Us Button */}
       <Button className="mt-6 inline-flex i px-10 py-6 text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 rounded-lg shadow-md font-bold text-lg hover:scale-105 transition-transform">
         Contact Us
       </Button>
-      {/* <button className="mt-6 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
-          Contact Us
-        </span>
-      </button> */}
     </div>
   );
 }
