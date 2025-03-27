@@ -1,10 +1,31 @@
 "use client";
+
+import { useState } from "react";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { Button } from "@/components/ui/button";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+// import { useRouter } from "next/navigation";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import ContactForm from "./contact-form";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "@/components/ui/dialog";
+// import ContactForm from "@/src/components/contactform";
 
 export default function Contactus() {
+  const [open, setOpen] = useState(false);
+  // const router = useRouter();
   return (
     <div
       className="flex flex-col items-center text-center mt-12 md:mt-16 px-0 md:px-0 w-full scroll-mt-25 "
@@ -100,9 +121,37 @@ export default function Contactus() {
         </span>
       </p>
       {/* Contact Us Button */}
-      <Button className="mt-6 inline-flex i px-10 py-6 text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 rounded-lg shadow-md font-bold text-lg hover:scale-105 transition-transform">
+      {/* <Button
+        onClick={() => router.push("/contact")} // Correct route path
+        className="mt-6 inline-flex px-10 py-6 text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 rounded-lg shadow-md font-bold text-lg hover:scale-105 transition-transform"
+      >
         Contact Us
-      </Button>
+      </Button> */}
+      <div className="flex justify-center items-center">
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger asChild>
+            <Button
+              onClick={() => setOpen(true)}
+              className="mt-6 inline-flex px-10 py-6 text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 rounded-lg shadow-md font-bold text-lg hover:scale-105 transition-transform"
+            >
+              Contact Us
+            </Button>
+          </DialogTrigger>
+
+          <DialogContent className="sm:max-w-md w-full p-6 rounded-2xl shadow-xl bg-white">
+            <DialogHeader className="mb-2">
+              <DialogTitle className="text-2xl text-center font-bold text-gray-900 mb-2">
+                Get in Touch
+              </DialogTitle>
+              <p className="text-center text-sm text-gray-600">
+                {`We'd love to hear from you! Please fill out the form below.`}
+              </p>
+            </DialogHeader>
+
+            <ContactForm />
+          </DialogContent>
+        </Dialog>
+      </div>
     </div>
   );
 }

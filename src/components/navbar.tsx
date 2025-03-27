@@ -38,13 +38,22 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-6">
-          <button onClick={() => handleSmoothScroll("#about")} className="hover:underline">
+          <button
+            onClick={() => handleSmoothScroll("#about")}
+            className="hover:text-blue-600 hover:underline transition-colors duration-200 cursor-pointer"
+          >
             About
           </button>
-          <button onClick={() => handleSmoothScroll("#services")} className="hover:underline">
+          <button
+            onClick={() => handleSmoothScroll("#services")}
+            className="hover:text-blue-600 hover:underline transition-colors duration-200 cursor-pointer"
+          >
             Services
           </button>
-          <button onClick={() => handleSmoothScroll("#contact")} className="hover:underline">
+          <button
+            onClick={() => handleSmoothScroll("#contact")}
+            className="hover:text-blue-600 hover:underline transition-colors duration-200 cursor-pointer"
+          >
             Contact
           </button>
         </div>
@@ -87,13 +96,22 @@ export default function Navbar() {
 
         {/* Sidebar Links */}
         <div className="flex flex-col items-start gap-4 pb-4">
-          <button onClick={() => handleSmoothScroll("#about")} className="hover:underline">
+          <button
+            onClick={() => handleSmoothScroll("#about")}
+            className="hover:text-blue-600 hover:underline transition-colors duration-200 cursor-pointer"
+          >
             About
           </button>
-          <button onClick={() => handleSmoothScroll("#services")} className="hover:underline">
+          <button
+            onClick={() => handleSmoothScroll("#services")}
+            className="hover:text-blue-600 hover:underline transition-colors duration-200 cursor-pointer"
+          >
             Services
           </button>
-          <button onClick={() => handleSmoothScroll("#contact")} className="hover:underline">
+          <button
+            onClick={() => handleSmoothScroll("#contact")}
+            className="hover:text-blue-600 hover:underline transition-colors duration-200 cursor-pointer"
+          >
             Contact
           </button>
         </div>
