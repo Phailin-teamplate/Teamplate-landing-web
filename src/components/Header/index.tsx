@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggler from "./ThemeToggler";
@@ -23,11 +22,10 @@ const menuData: Menus[] = [
 ];
 
 const Header = () => {
-  const [dropdownIndex, setDropdownIndex] = useState<number | null>(null);
   const [sticky, setSticky] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string>("");
-  const pathname = usePathname();
+ 
 
   // Sticky header on scroll
   useEffect(() => {
@@ -53,9 +51,7 @@ const Header = () => {
     }
   }, []);
 
-  const toggleDropdown = (index: number) => {
-    setDropdownIndex((prev) => (prev === index ? null : index));
-  };
+
 
   // Style helper
   const getButtonClasses = (id: string, isDropdown = false) => {

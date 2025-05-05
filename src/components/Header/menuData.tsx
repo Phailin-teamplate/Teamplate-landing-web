@@ -1,4 +1,4 @@
-type Menus = {
+export type Menus = {
   id: number;
   title: string;
   path?: string;
@@ -6,7 +6,7 @@ type Menus = {
   submenu?: Menus[];
 };
 
-const menuData: Menus[] = [
+export const menuData: Menus[] = [
   {
     id: 1,
     title: "About",
