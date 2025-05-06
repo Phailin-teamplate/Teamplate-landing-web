@@ -17,16 +17,16 @@ export default function Home() {
     animatedService: "",
   });
 
-  const [loadCount, setLoadCount] = useState(0);
+  // const [loadCount, setLoadCount] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  const onLoadOnce = () => {
-    setLoadCount((prev) => {
-      const updated = prev + 1;
-      if (updated >= 4) setLoaded(true);
-      return updated;
-    });
-  };
+  // const onLoadOnce = () => {
+  //   setLoadCount((prev) => {
+  //     const updated = prev + 1;
+  //     if (updated >= 4) setLoaded(true);
+  //     return updated;
+  //   });
+  // };
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 6000);
@@ -66,7 +66,7 @@ export default function Home() {
               alt="Startup Background"
               fill
               unoptimized
-              onLoad={onLoadOnce}
+              // onLoad={onLoadOnce}
               className="object-cover"
             />
           )}
@@ -145,7 +145,7 @@ export default function Home() {
                       alt="About Image"
                       fill
                       unoptimized
-                      onLoad={onLoadOnce}
+                      // onLoad={onLoadOnce}
                       className="object-contain"
                     />
                   </motion.div>
@@ -155,7 +155,7 @@ export default function Home() {
                       alt="About Mobile"
                       fill
                       unoptimized
-                      onLoad={onLoadOnce}
+                      // onLoad={onLoadOnce}
                       className="object-contain"
                     />
                   </div>
