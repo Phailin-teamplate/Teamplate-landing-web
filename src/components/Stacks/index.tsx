@@ -1,31 +1,64 @@
+// components/Stacks.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import SectionHeader from "../Common/SectionHeader";
+import Image from "next/image";
 import { techCategories, TechCategory } from "../../types/stackData";
 import { fetchStackLogos } from "../../lib/fetchStackLogos";
-import Image from "next/image";
+import SectionHeader from "../Common/SectionHeader";
+
+// Optional: if names and filenames differ
+const nameToFileKeyMap: Record<string, string> = {
+  "ReactJS": "reactjs",
+  "NextJS": "nextjs",
+  "VueJS": "vuejs",
+  "ExpressJS": "express",
+  "NestJS": "nestjs",
+  "Spring Boot": "springboot",
+  "Flask": "flask",
+  "Django": "django",
+  "React Native": "reactjs",
+  "Flutter": "flutter",
+  "Swift": "swift",
+  "Kotlin": "kotlin",
+  "PostgreSQL": "postgresql",
+  "MongoDB": "mongodb_logo",
+  "Redis": "redis",
+  "Firebase": "firebase2-min",
+  "Supabase": "supabase",
+  "AWS": "aws",
+  "GCP": "gcp",
+  "Azure": "azure",
+  "Docker": "docker-logo-blue",
+  "Kubernetes": "kubernetes",
+  "EKS": "eks",
+  "TensorFlow": "tensorflow",
+  "PyTorch": "pytorch_logo",
+};
 
 export default function Stacks() {
   const [categories, setCategories] = useState<TechCategory[]>([]);
 
   useEffect(() => {
-    const loadLogos = async () => {
+    const load = async () => {
       const logos = await fetchStackLogos();
 
       const enriched = techCategories.map((category) => ({
         ...category,
-        technologies: category.technologies.map((tech) => ({
-          ...tech,
-          imageUrl: logos[tech.name.toLowerCase()],
-        })),
+        technologies: category.technologies.map((tech) => {
+          const key = nameToFileKeyMap[tech.name] || tech.name.toLowerCase();
+          return {
+            ...tech,
+            imageUrl: logos[key],
+          };
+        }),
       }));
 
       setCategories(enriched);
     };
 
-    loadLogos();
+    load();
   }, []);
 
   return (
@@ -59,14 +92,17 @@ export default function Stacks() {
               <div className="grid grid-cols-2 gap-4">
                 {category.technologies.map((tech, idx) => (
                   <div key={idx} className="flex flex-col items-center text-center">
-                    {tech.imageUrl && (
+                    {tech.imageUrl ? (
                       <Image
                         src={tech.imageUrl}
                         alt={tech.name}
                         width={50}
                         height={50}
                         className="mb-2 h-14 w-auto object-contain"
+                        unoptimized
                       />
+                    ) : (
+                      <div className="mb-2 h-14 w-14 bg-gray-200 rounded-full" />
                     )}
                     <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
                       {tech.name}

@@ -19,10 +19,10 @@ const FeaturesSection = () => {
   }, []);
 
   return (
-    <section id="services" className="md:scroll-mt-19 scroll-mt-23">
-      <div className=" py-10 md:py-16 lg:py-20 bg-whitesection dark:bg-blacksection overflow-hidden ">
+    <section id="services" className="scroll-mt-20">
+    <div className="py-10 md:py-16 lg:py-20 bg-whitesection dark:bg-blacksection overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
-
+        
         {/* Section Title */}
         <SectionHeader
           headerInfo={{
@@ -32,17 +32,18 @@ const FeaturesSection = () => {
               "We operate a highly diverse and extensive range of businesses in the IT sector.",
           }}
         />
-
+  
         {/* Features Grid */}
-        <div className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-        {features.map((feature) => (
-          <SingleFeature key={feature.id} feature={feature} />
-        ))}
+        <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+          {features.map((feature) => (
+            <SingleFeature key={feature.id} feature={feature} />
+          ))}
         </div>
+  
       </div>
-      </div>
-
-    </section>
+    </div>
+  </section>
+  
   );
 };
 

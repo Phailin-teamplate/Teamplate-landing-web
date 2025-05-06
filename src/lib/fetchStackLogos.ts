@@ -1,3 +1,4 @@
+// lib/fetchStackLogos.ts
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 
@@ -13,7 +14,6 @@ export const fetchStackLogos = async (): Promise<Record<string, string>> => {
         return [fileName.toLowerCase(), url];
       })
     );
-
     return Object.fromEntries(entries);
   } catch (error) {
     console.error("Error fetching Stack logos:", error);

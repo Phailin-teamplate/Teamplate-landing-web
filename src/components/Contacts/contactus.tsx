@@ -17,7 +17,7 @@ const Contacts = () => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className="flex flex-col items-center text-center px-4 sm:px-6 py-10 md:py-16 lg:py-20 w-full scroll-mt-25 "
+      className="flex flex-col items-center text-center px-4 sm:px-6 py-10 md:py-16 lg:py-20 w-full md:scroll-mt-20 scroll-mt-20"
       id="contact"
     >
       {/* Heading */}

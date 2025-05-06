@@ -124,7 +124,7 @@ const Header = () => {
       {/* Mobile Overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-20 backdrop-blur-sm"
+          className="fixed inset-0 z-20  backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         />
       )}
