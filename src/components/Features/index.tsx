@@ -1,11 +1,23 @@
 "use client";
 
 import React from "react";
-import featuresData from "./featuresData";
+import { fetchFeatures } from "./featuresData";
 import SingleFeature from "./SingleFeature";
 import SectionHeader from "../Common/SectionHeader";
+import { useEffect, useState } from "react";
+import { Feature } from "../../types/feature";
 
-const Feature = () => {
+
+const FeaturesSection = () => {
+  const [features, setFeatures] = useState<Feature[]>([]);
+  useEffect(() => {
+    const load = async () => {
+      const data = await fetchFeatures();
+      setFeatures(data);
+    };
+    load();
+  }, []);
+
   return (
     <section id="services" className="md:scroll-mt-19 scroll-mt-23">
       <div className=" py-10 md:py-16 lg:py-20 bg-whitesection dark:bg-blacksection overflow-hidden ">
@@ -23,9 +35,9 @@ const Feature = () => {
 
         {/* Features Grid */}
         <div className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-          {featuresData.map((feature, key) => (
-            <SingleFeature feature={feature} key={key} />
-          ))}
+        {features.map((feature) => (
+          <SingleFeature key={feature.id} feature={feature} />
+        ))}
         </div>
       </div>
       </div>
@@ -34,4 +46,4 @@ const Feature = () => {
   );
 };
 
-export default Feature;
+export default FeaturesSection;

@@ -25,7 +25,6 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string>("");
- 
 
   // Sticky header on scroll
   useEffect(() => {
@@ -51,8 +50,6 @@ const Header = () => {
     }
   }, []);
 
-
-
   // Style helper
   const getButtonClasses = (id: string, isDropdown = false) => {
     const isActive = id === activeLink;
@@ -60,8 +57,8 @@ const Header = () => {
       isActive
         ? "text-blue-600 border-b-2 border-blue-600 dark:text-blue-400 dark:border-blue-400"
         : isDropdown
-        ? "text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-        : "text-black dark:text-white hover:text-blue-600 hover:border-b-2 hover:border-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-400"
+          ? "text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+          : "text-black dark:text-white hover:text-blue-600 hover:border-b-2 hover:border-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-400"
     }`;
   };
 
@@ -112,9 +109,7 @@ const Header = () => {
               {menuData.map((menuItem, index) => (
                 <li key={index} className="relative group">
                   <button
-                    onClick={() =>
-                      handleSmoothScroll(menuItem.path || "#")
-                    }
+                    onClick={() => handleSmoothScroll(menuItem.path || "#")}
                     className={getButtonClasses(menuItem.path || "#")}
                   >
                     {menuItem.title}
@@ -129,7 +124,7 @@ const Header = () => {
       {/* Mobile Overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-20 bg-black bg-opacity-40 backdrop-blur-sm"
+          className="fixed inset-0 z-20 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         />
       )}
@@ -141,7 +136,12 @@ const Header = () => {
         } duration-300 ease-in-out z-30`}
       >
         <div className="flex justify-between items-center pb-4 mt-1">
-          <ThemeToggler />
+          {/* Left: Theme Toggle */}
+          <div className="flex items-center">
+            <ThemeToggler />
+          </div>
+
+          {/* Right: Close Button */}
           <button
             className="text-black dark:text-white focus:outline-none"
             onClick={() => setMobileOpen(false)}
