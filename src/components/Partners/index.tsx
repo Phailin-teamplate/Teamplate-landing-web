@@ -6,10 +6,10 @@ import brandData from "./partnerData";
 
 const Partners = () => {
   return (
-    <section className="py-10 sm:py-14 md:py-20 lg:py-24 xl:py-28">
+    <section className="py-10 sm:py-14 md:py-20">
       {/* Section Header */}
       <div className="text-center mb-6 md:mb-10">
-        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
           Partners
         </h3>
       </div>

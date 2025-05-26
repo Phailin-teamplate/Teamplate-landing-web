@@ -6,8 +6,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Inter, Noto_Sans_Lao } from "next/font/google";
 import "./globals.css";
 // import Navbar from "@/src/components/navbar";
-import Footer from "../components/footer";
-import Header from "@/src/components/Header";
+import Footer from "@/src/components/Footer/Footer";
+// import Header from "@/src/components/Header";
+import Navbar from "@/src/components/Header/Navbar";
 
 // Font setups
 const inter = Inter({ subsets: ["latin"] });
@@ -27,15 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [isVisible, setIsVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // ✅ added
 
-  // Show loading for initial render (simulate with timeout)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500); // Optional: adjust timing
-    return () => clearTimeout(timer);
-  }, []);
 
   // Scroll button visibility logic
   useEffect(() => {
@@ -52,20 +45,17 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className={`dark:bg-black ${inter.className} ${notoSansLao.className}`}>
-        {isLoading ? (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black">
-            <div className="w-12 h-12 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
-          </div>
-        ) : (
+      <body
+        className={`dark:bg-black ${inter.className} ${notoSansLao.className}`}
+      >
+       
           <>
-            {/* Layout Sections */}
-            {/* <Navbar /> */}
-            <Header />
+            <Navbar />
+          
             <main>{children}</main>
+           
             <Footer />
 
-            {/* Scroll-to-Top Button */}
             {isVisible && (
               <button
                 onClick={scrollToTop}
@@ -75,7 +65,7 @@ export default function RootLayout({
               </button>
             )}
           </>
-        )}
+      
       </body>
     </html>
   );

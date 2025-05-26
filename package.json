@@ -1,5 +1,5 @@
 {
-  "name": "moneymax-web-amin",
+  "name": "teamplate-landing-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,6 +15,7 @@
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-toast": "^1.2.13",
     "@radix-ui/react-tooltip": "^1.1.8",
     "@react-email/components": "^0.0.34",
     "@react-google-maps/api": "^2.20.6",
@@ -37,6 +38,7 @@
     "react-spinners": "^0.15.0",
     "resend": "^4.1.2",
     "sharp": "^0.34.1",
+    "sonner": "^2.0.3",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.2",
@@ -53,7 +55,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.14",
+    "tailwindcss": "^4.1.5",
     "typescript": "^5"
   }
 }

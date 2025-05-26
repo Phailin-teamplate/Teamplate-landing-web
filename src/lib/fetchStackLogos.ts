@@ -1,4 +1,3 @@
-// lib/fetchStackLogos.ts
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 
