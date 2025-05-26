@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { fetchAboutImage } from "../../lib/fetchAboutImage";
+import { fetchAboutImage } from "@/lib/fetchAboutImage";
 
 const containerVariants = {
   hidden: {},
@@ -44,8 +44,8 @@ const OurStory: React.FC = () => {
     const loadImages = async () => {
       const [start, animatedIT, animatedITService] = await Promise.all([
         fetchAboutImage("start.gif"),
-        fetchAboutImage("animatedIT.gif"),
-        fetchAboutImage("animatedITService.gif"),
+        fetchAboutImage("animated-it.gif"),
+        fetchAboutImage("animated-it-service.gif"),
       ]);
       setImages({ start, animatedIT, animatedITService });
     };

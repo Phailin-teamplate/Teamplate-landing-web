@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
                {logos.dark && (
         <Image
           src={logos.dark}
-          alt="TEAMPLATE"
+          alt="Teamplate Logo - Dark"
           width={119}
           height={30}
           className="hidden dark:block w-32 sm:w-40 md:w-48 lg:w-56"
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
       {logos.light && (
         <Image
           src={logos.light}
-          alt="TEAMPLATE (2)"
+          alt="Teamplate Logo - Light"
           width={119}
           height={30}
           className="block dark:hidden w-32 sm:w-40 md:w-48 lg:w-56"

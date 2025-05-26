@@ -62,7 +62,7 @@ const FeaturesSection: React.FC = () => {
 
   useEffect(() => {
     const loadImage = async () => {
-      const url = await fetchAboutImage("company.JPG");
+      const url = await fetchAboutImage("company.jpeg");
       setImageUrl(url);
     };
 
@@ -162,7 +162,7 @@ const FeaturesSection: React.FC = () => {
               <div className="gradient-bg p-5 md:p-5 flex items-center justify-center">
                 {imageUrl && (
         <Image
-          alt="company.JPG"
+          alt="Illustration of people working with technology"
           src={imageUrl}
           width={640}
           height={400}

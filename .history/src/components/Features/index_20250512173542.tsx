@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { fetchAboutImage } from "../../lib/fetchAboutImage";
 
 // ===== Motion Variants =====
 
@@ -58,16 +57,7 @@ const itemVariants = {
 
 const FeaturesSection: React.FC = () => {
   const [features, setFeatures] = useState<Feature[]>([]);
- const [imageUrl, setImageUrl] = useState("");
 
-  useEffect(() => {
-    const loadImage = async () => {
-      const url = await fetchAboutImage("company.JPG");
-      setImageUrl(url);
-    };
-
-    loadImage();
-  }, []);
   useEffect(() => {
     const load = async () => {
       const data = await fetchFeatures();
@@ -160,16 +150,13 @@ const FeaturesSection: React.FC = () => {
                 </div>
               </div>
               <div className="gradient-bg p-5 md:p-5 flex items-center justify-center">
-                {imageUrl && (
-        <Image
-          alt="company.JPG"
-          src={imageUrl}
-          width={640}
-          height={400}
-          className="rounded-lg object-cover"
-          unoptimized
-        />
-      )}
+                <Image
+                  alt="Illustration of people working with technology"
+                  src="/images/about/Company-Ai.png"
+                  width={640}
+                  height={400}
+                  className="rounded-lg object-cover"
+                />
               </div>
             </div>
           </motion.div>

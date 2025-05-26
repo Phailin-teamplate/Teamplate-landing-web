@@ -162,7 +162,7 @@ const FeaturesSection: React.FC = () => {
               <div className="gradient-bg p-5 md:p-5 flex items-center justify-center">
                 {imageUrl && (
         <Image
-          alt="company.JPG"
+          alt="company.jpg"
           src={imageUrl}
           width={640}
           height={400}
