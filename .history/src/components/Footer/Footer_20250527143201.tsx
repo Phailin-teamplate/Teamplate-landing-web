@@ -22,9 +22,7 @@ export const Footer: React.FC = () => {
               Teamplate Sole Co., Ltd
             </div>
             <p className="text-muted-foreground text-black dark:text-white dark:hover:text-blue-500  hover:text-blue-500 cursor-pointer">
-              <Link href= "https://maps.app.goo.gl/fUchwK2bPa4R6YCCA">
               IT Center, Lao Youth Union, Vientiane Prefecture, Laos
-              </Link>
             </p>
           </div>
 

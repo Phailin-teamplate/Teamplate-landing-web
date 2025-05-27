@@ -21,10 +21,8 @@ export const Footer: React.FC = () => {
             <div className="text-2xl font-bold text-gradient mb-4 text-blue-500">
               Teamplate Sole Co., Ltd
             </div>
-            <p className="text-muted-foreground text-black dark:text-white dark:hover:text-blue-500  hover:text-blue-500 cursor-pointer">
-              <Link href= "https://maps.app.goo.gl/fUchwK2bPa4R6YCCA">
+            <p className="text-muted-foreground text-black dark:text-white dark:hover:text-blue-500  hover:text-blue-500 cursoor-pointer">
               IT Center, Lao Youth Union, Vientiane Prefecture, Laos
-              </Link>
             </p>
           </div>
 
