@@ -38,6 +38,8 @@ const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
+
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/50 dark:bg-black/50 dark:border-strokedark backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,53 +120,53 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -30 }}
-          transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-50 bg-white dark:bg-blacksection"
+     {isOpen && (
+  <motion.div
+    initial={{ opacity: 0, y: -30 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -30 }}
+    transition={{ duration: 0.25 }}
+    className="fixed inset-0 z-50 bg-white dark:bg-blacksection"
+    onClick={() => setIsOpen(false)}
+  >
+    <div
+      className="w-full h-full px-6 py-8 flex flex-col text-gray-800 dark:text-gray-100"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Header */}
+<div className="flex justify-between items-center w-full border border-red-500">
+        <ThemeToggler />
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={() => setIsOpen(false)}
+          className="hover:bg-muted"
         >
-          <div
-            className="w-full h-full px-6 py-8 flex flex-col text-gray-800 dark:text-gray-100"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="flex items-center  w-full mb-6">
-              <ThemeToggler />
-              <div className="flex-1" /> {/* spacer */}
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(false)}
-                className="hover:bg-muted "
-              >
-                <X className="h-6 w-6 text-gray-700 dark:text-white" />
-              </Button>
-            </div>
+          <X className="h-6 w-6 text-gray-700 dark:text-white" />
+        </Button>
+      </div>
 
-            {/* Navigation */}
-            <nav className="flex flex-col gap-4 mt-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`w-full text-center px-5 py-3 rounded-lg text-lg font-medium tracking-wide transition-all duration-200 shadow-sm ${
-                    pathname === link.href
-                      ? "bg-primary text-primary-foreground"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:bg-black dark:border-strokedark border dark:hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </motion.div>
-      )}
+      {/* Navigation */}
+      <nav className="flex flex-col gap-4 mt-4">
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setIsOpen(false)}
+            className={`w-full text-center px-5 py-3 rounded-lg text-lg font-medium tracking-wide transition-all duration-200 shadow-sm ${
+              pathname === link.href
+                ? "bg-primary text-primary-foreground"
+                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:bg-black dark:border-strokedark border dark:hover:text-white"
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+    </div>
+  </motion.div>
+)}
+
     </nav>
   );
 };

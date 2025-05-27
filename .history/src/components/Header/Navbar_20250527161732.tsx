@@ -38,6 +38,8 @@ const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
+
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/50 dark:bg-black/50 dark:border-strokedark backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,21 +134,24 @@ const Navbar: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center  w-full mb-6">
-              <ThemeToggler />
-              <div className="flex-1" /> {/* spacer */}
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(false)}
-                className="hover:bg-muted "
-              >
-                <X className="h-6 w-6 text-gray-700 dark:text-white" />
-              </Button>
+            <div className="flex items-center justify-between ">
+              <div className="shrink-0">
+                <ThemeToggler />
+              </div>
+              <div className="shrink-0">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsOpen(false)}
+                  className=" hover:bg-muted"
+                >
+                  <X className=" text-gray-700 dark:text-white" />
+                </Button>
+              </div>
             </div>
 
             {/* Navigation */}
-            <nav className="flex flex-col gap-4 mt-4">
+            <nav className="flex flex-col gap-4 mt-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
