@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { fetchLogoUrls } from "../../lib/fetchLogoUrls";
 import Image from "next/image";
 import ThemeToggler from "./ThemeToggler";
 
@@ -38,7 +39,12 @@ const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
-
+  useEffect(() => {
+    const load = async () => {
+      const urls = await fetchLogoUrls();
+    };
+    load();
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/50 dark:bg-black/50 dark:border-strokedark backdrop-blur-md border-b border-border">

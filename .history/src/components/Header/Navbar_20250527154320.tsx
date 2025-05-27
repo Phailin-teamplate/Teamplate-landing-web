@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { fetchLogoUrls } from "../../lib/fetchLogoUrls";
 import Image from "next/image";
 import ThemeToggler from "./ThemeToggler";
 
