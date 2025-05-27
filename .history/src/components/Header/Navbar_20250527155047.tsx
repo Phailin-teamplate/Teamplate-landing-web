@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4 text-black dark:text-white">
+          <div className="hidden md:flex items-center space-x-6 text-black dark:text-white">
             <div className="flex items-center space-x-4">
               <ThemeToggler />
             </div>
