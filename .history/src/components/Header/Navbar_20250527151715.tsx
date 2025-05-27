@@ -54,27 +54,33 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <>
-              {/* Dark mode logo */}
-              <Image
-                src="/images/logo/TEAMPLATE (2).png"
-                alt="TEAMPLATE"
-                width={119}
-                height={30}
-                className="hidden dark:block w-32 sm:w-40 md:w-48 lg:w-56"
-                priority
-              />
-
-              {/* Light mode logo */}
-              <Image
-                src="/images/logo/TEAMPLATE.png"
-                alt="TEAMPLATE (2)"
-                width={119}
-                height={30}
-                className="block dark:hidden w-32 sm:w-40 md:w-48 lg:w-56"
-                priority
-              />
-            </>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl font-bold"
+            >
+              {logos.dark && (
+                <Image
+                  src={logos.dark}
+                  alt="TEAMPLATE"
+                  width={119}
+                  height={30}
+                  className="hidden dark:block w-32 sm:w-40 md:w-48 lg:w-56"
+                  unoptimized
+                />
+              )}
+              {logos.light && (
+                <Image
+                  src={logos.light}
+                  alt="TEAMPLATE (2)"
+                  width={119}
+                  height={30}
+                  className="block dark:hidden w-32 sm:w-40 md:w-48 lg:w-56"
+                  unoptimized
+                />
+              )}
+            </motion.div>
           </Link>
 
           {/* Desktop Menu */}
@@ -134,7 +140,7 @@ const Navbar: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-50 bg-white dark:bg-blacksection"
+className="fixed inset-0 z-50 bg-white dark:bg-blacksection"
           onClick={() => setIsOpen(false)}
         >
           <div

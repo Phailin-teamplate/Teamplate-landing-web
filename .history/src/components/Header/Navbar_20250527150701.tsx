@@ -54,33 +54,40 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <>
-              {/* Dark mode logo */}
-              <Image
-                src="/images/logo/TEAMPLATE (2).png"
-                alt="TEAMPLATE"
-                width={119}
-                height={30}
-                className="hidden dark:block w-32 sm:w-40 md:w-48 lg:w-56"
-                priority
-              />
-
-              {/* Light mode logo */}
-              <Image
-                src="/images/logo/TEAMPLATE.png"
-                alt="TEAMPLATE (2)"
-                width={119}
-                height={30}
-                className="block dark:hidden w-32 sm:w-40 md:w-48 lg:w-56"
-                priority
-              />
-            </>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl font-bold"
+            >
+              {logos.dark && (
+                <Image
+                  src={logos.dark}
+                  alt="TEAMPLATE"
+                  width={119}
+                  height={30}
+                  className="hidden dark:block w-32 sm:w-40 md:w-48 lg:w-56"
+                  unoptimized
+                />
+              )}
+              {logos.light && (
+                <Image
+                  src={logos.light}
+                  alt="TEAMPLATE (2)"
+                  width={119}
+                  height={30}
+                  className="block dark:hidden w-32 sm:w-40 md:w-48 lg:w-56"
+                  unoptimized
+                />
+              )}
+            </motion.div>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6 text-black dark:text-white">
             <div className="flex items-center space-x-4">
-              <ThemeToggler />
+
+            <ThemeToggler />
             </div>
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="relative group">
@@ -97,11 +104,7 @@ const Navbar: React.FC = () => {
                     <motion.div
                       layoutId="navbar-indicator"
                       className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
                 </Button>
@@ -111,12 +114,7 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Toggle */}
           <div className="md:hidden flex items-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMenu}
-              className="ml-2"
-            >
+            <Button variant="ghost" size="icon" onClick={toggleMenu} className="ml-2">
               {isOpen ? (
                 <X className="h-6 w-6 dark:text-white" />
               ) : (
@@ -134,29 +132,29 @@ const Navbar: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-50 bg-white dark:bg-blacksection"
+          className="fixed inset-0 z-50 md:hidden bg-white dark:bg-blacksection"
           onClick={() => setIsOpen(false)}
         >
           <div
             className="w-full h-full px-6 py-8 flex flex-col text-gray-800 dark:text-gray-100"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between ">
-              <div className="shrink-0">
-                <ThemeToggler />
-              </div>
-              <div className="shrink-0">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsOpen(false)}
-                  className="ml-2 hover:bg-muted"
-                >
-                  <X className="h-6 w-6 text-gray-700 dark:text-white" />
-                </Button>
-              </div>
-            </div>
+           {/* Header */}
+        <div className="flex items-center justify-between ">
+          <div className="shrink-0">
+            <ThemeToggler />
+          </div>
+          <div className="shrink-0">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(false)}
+              className="ml-2 hover:bg-muted"
+            >
+              <X className="h-6 w-6 text-gray-700 dark:text-white" />
+            </Button>
+          </div>
+        </div>
 
             {/* Navigation */}
             <nav className="flex flex-col gap-4 mt-10">
@@ -168,7 +166,7 @@ const Navbar: React.FC = () => {
                   className={`w-full text-center px-5 py-3 rounded-lg text-lg font-medium tracking-wide transition-all duration-200 shadow-sm ${
                     pathname === link.href
                       ? "bg-primary text-primary-foreground"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:bg-black dark:border-strokedark border dark:hover:text-white"
+                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-blacksection hover:text-black dark:hover:text-white"
                   }`}
                 >
                   {link.label}
