@@ -102,7 +102,12 @@ export default function Login() {
         )}
       </form>
 
-   
+      <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+        Don’t have an account?{" "}
+        <a href="/register" className="text-blue-600 hover:underline">
+          Sign up
+        </a>
+      </p>
     </div>
   </div>
 </section>

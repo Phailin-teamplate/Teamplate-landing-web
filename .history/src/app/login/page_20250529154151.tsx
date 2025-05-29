@@ -45,14 +45,11 @@ export default function Login() {
   };
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-black overflow-hidden">
-  <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
-    <div className="max-w-md mx-auto bg-white dark:bg-blacksection  border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl p-10">
-      <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
-        LOGIN
-      </h2>
-
-      <form onSubmit={handleLogin} className="space-y-6">
+ <section className="py-10 md:py-16 lg:py-15 bg-white dark:bg-blacksection overflow-hidden">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">      <form
+        onSubmit={handleLogin}
+        className="max-w-md mx-auto mt-10 bg-white dark:bg-blacksection dark:border-strokedark p-8 rounded-xl shadow-md space-y-6"
+      >
         <div>
           <label
             htmlFor="email"
@@ -67,7 +64,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
             required
-            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
           />
         </div>
 
@@ -85,27 +82,21 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
             required
-            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
           />
         </div>
 
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? "Signing in..." : "Login"}
         </button>
 
-        {error && (
-          <p className="text-red-500 text-sm text-center mt-2">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
       </form>
-
-   
     </div>
-  </div>
-</section>
-
+    </section>
   );
 }

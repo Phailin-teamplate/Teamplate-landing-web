@@ -45,9 +45,9 @@ export default function Login() {
   };
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-black overflow-hidden">
+    <section className="py-16 bg-gray-50  overflow-hidden">
   <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
-    <div className="max-w-md mx-auto bg-white dark:bg-blacksection  border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl p-10">
+    <div className="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl p-10">
       <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
         LOGIN
       </h2>
@@ -102,7 +102,12 @@ export default function Login() {
         )}
       </form>
 
-   
+      <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+        Don’t have an account?{" "}
+        <a href="/register" className="text-blue-600 hover:underline">
+          Sign up
+        </a>
+      </p>
     </div>
   </div>
 </section>
