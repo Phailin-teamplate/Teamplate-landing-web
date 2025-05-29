@@ -34,8 +34,8 @@ export const Footer: React.FC = () => {
               Navigation
             </h3>
             <ul className="space-y-3">
-              {["/", "/about", "/stacks", "/contact"].map((path, index) => {
-                const names = ["Home", "About", "Stacks", "Contact"];
+              {["/", "/about", "/stacks", "/activity", "/contact"].map((path, index) => {
+                const names = ["Home", "About", "Stack", "Activity", "Contact"];
                 return (
                   <li key={path}>
                     <Link

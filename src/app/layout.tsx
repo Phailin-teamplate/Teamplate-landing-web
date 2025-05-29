@@ -9,6 +9,8 @@ import Footer from "@/src/components/Footer/Footer";
 // import Header from "@/src/components/Header";
 import Navbar from "@/src/components/Header/Navbar";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import { AuthProvider } from "@/src/app/context/authContext";
+
 // Font setups
 const inter = Inter({ subsets: ["latin"] });
 const notoSansLao = Noto_Sans_Lao({ subsets: ["lao"] });
@@ -51,7 +53,8 @@ export default function RootLayout({
           <>
             <Navbar />
           
-            <main>{children}</main>
+                   <AuthProvider>{children}</AuthProvider>
+
            
             <Footer />
 
