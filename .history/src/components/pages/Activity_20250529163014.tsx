@@ -37,13 +37,7 @@ export default function Activity({
 
       <section className="pb-10 pt-10 bg-muted/50 dark:bg-background border-t border-border dark:bg-blacksection dark:border-strokedark  border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-black dark:text-white ">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
+          
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Activity
             </h2>
@@ -51,7 +45,7 @@ export default function Activity({
               We’re on a mission to simplify digital experiences for everyone —
               startups, creators, and enterprises alike.
             </p>
-          </motion.div>
+        
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
             {posts.map((post) => (
@@ -74,9 +68,9 @@ export default function Activity({
                       <h3 className="text-xl font-semibold text-primary mb-2 line-clamp-1">
                         {post.title}
                       </h3>
-                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3 break-words">
-          {post.detail}
-        </p>
+                      <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
+                        {post.detail}
+                      </p>
                     </div>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
                       {post.datePost.toDate().toLocaleDateString("en-US", {

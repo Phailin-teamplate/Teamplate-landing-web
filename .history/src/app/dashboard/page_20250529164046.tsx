@@ -78,7 +78,7 @@ export default function Dashboard() {
           <div className="mt-6 flex justify-center">
             <Button
               onClick={() => setShowAddModal(true)}
-              className="bg-green-500 text-white hover:bg-green-600 transition px-6 py-2 text-sm font-medium rounded-lg cursor-pointer"
+              className="bg-green-500 text-white hover:bg-green-600 transition px-6 py-2 text-sm font-medium rounded-lg"
             >
               Add New Post
             </Button>
@@ -90,7 +90,7 @@ export default function Dashboard() {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="relative bg-white  shadow-sm hover:shadow-md transition-all dark:bg-blacksection dark:border-strokedark  border border-border  rounded-2xl overflow-hidden group"
+              className="relative bg-white dark:bg-zinc-900 shadow-md hover:shadow-lg transition rounded-2xl overflow-hidden group"
             >
               {/* 🗑️ Delete Icon */}
               <button

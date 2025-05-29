@@ -10,7 +10,6 @@ import Footer from "@/src/components/Footer/Footer";
 import Navbar from "@/src/components/Header/Navbar";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import { AuthProvider } from "@/src/app/context/authContext";
-import { Toaster } from 'react-hot-toast';
 
 // Font setups
 const inter = Inter({ subsets: ["latin"] });
@@ -55,7 +54,6 @@ export default function RootLayout({
             <Navbar />
           
                    <AuthProvider>{children}</AuthProvider>
-        <Toaster position="bottom-right" reverseOrder={false} />
 
            
             <Footer />

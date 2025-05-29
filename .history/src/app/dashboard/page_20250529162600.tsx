@@ -56,7 +56,7 @@ export default function Dashboard() {
 
 
   return (
-    <div className="min-h-screen bg-gray-100  dark:bg-blacksection dark:border-strokedark  border px-4 py-10">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-black dark:text-white">
         {/* Section Header */}
         <motion.div
@@ -78,7 +78,7 @@ export default function Dashboard() {
           <div className="mt-6 flex justify-center">
             <Button
               onClick={() => setShowAddModal(true)}
-              className="bg-green-500 text-white hover:bg-green-600 transition px-6 py-2 text-sm font-medium rounded-lg cursor-pointer"
+              className="bg-green-500 text-white hover:bg-green-600 transition px-6 py-2 text-sm font-medium rounded-lg"
             >
               Add New Post
             </Button>
@@ -90,15 +90,15 @@ export default function Dashboard() {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="relative bg-white  shadow-sm hover:shadow-md transition-all dark:bg-blacksection dark:border-strokedark  border border-border  rounded-2xl overflow-hidden group"
+              className="relative bg-white dark:bg-zinc-900 shadow-md hover:shadow-lg transition rounded-2xl overflow-hidden group"
             >
               {/* 🗑️ Delete Icon */}
               <button
                 onClick={() => handleDeletePost(post.id, post.imageUrl)}
-                className="absolute top-3 flex left-3 text-red-500 hover:text-red-700 z-10 bg-white w-8 h-8 items-center justify-center rounded-full hover:bg-gray-50 cursor-pointer"
+                className="absolute top-3 left-3 text-red-500 hover:text-red-700 z-10 bg-white w-8 h-8 items-center justify-center rounded-full"
                 aria-label="Delete Post"
               >
-                <Trash2 className="w-5 h-5 " />
+                <Trash2 className="w-5 h-5 flex items-center" />
               </button>
 
               {/* ✏️ Edit Icon */}
@@ -107,7 +107,7 @@ export default function Dashboard() {
                   setSelectedPost(post);
                   setShowEditModal(true);
                 }}
-                className="absolute top-3 right-3 text-blue-600 hover:text-blue-800 z-10 flex bg-white items-center justify-center rounded-full w-8 h-8 hover:bg-gray-50 cursor-pointer"
+                className="absolute top-3 right-3 text-blue-600 hover:text-blue-800 z-10"
                 aria-label="Edit Post"
               >
                 <Pencil className="w-5 h-5" />

@@ -95,7 +95,7 @@ export default function AddPostModal({
         <button
           type="button"
           onClick={onCloseAction}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white cursor-pointer"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white"
           aria-label="Close"
         >
           <X size={20} />
@@ -146,13 +146,13 @@ export default function AddPostModal({
         )}
 
         <div className="mt-6 flex justify-end gap-4 dark:text-white">
-          <Button type="button" variant="outline" onClick={onCloseAction} className="hover:bg-gray-100 dark:hover:bg-gray-900 cursor-pointer">
+          <Button type="button" variant="outline" onClick={onCloseAction}>
             Cancel
           </Button>
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Adding..." : "Add Post"}
           </Button>

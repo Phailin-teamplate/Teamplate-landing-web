@@ -74,9 +74,12 @@ export default function Activity({
                       <h3 className="text-xl font-semibold text-primary mb-2 line-clamp-1">
                         {post.title}
                       </h3>
-                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3 break-words">
-          {post.detail}
-        </p>
+                      <p
+                        className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3 break-words"
+                        title={post.detail}
+                      >
+                        {post.detail}
+                      </p>
                     </div>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
                       {post.datePost.toDate().toLocaleDateString("en-US", {

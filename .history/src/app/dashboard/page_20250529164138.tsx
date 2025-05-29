@@ -78,7 +78,7 @@ export default function Dashboard() {
           <div className="mt-6 flex justify-center">
             <Button
               onClick={() => setShowAddModal(true)}
-              className="bg-green-500 text-white hover:bg-green-600 transition px-6 py-2 text-sm font-medium rounded-lg cursor-pointer"
+              className="bg-green-500 text-white hover:bg-green-600 transition px-6 py-2 text-sm font-medium rounded-lg"
             >
               Add New Post
             </Button>

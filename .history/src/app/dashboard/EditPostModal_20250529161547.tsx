@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import { X } from "lucide-react";
 type EditPostModalProps = {
   postId: string;
   initialTitle: string;
@@ -76,47 +75,35 @@ export default function EditPostModal({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <form
         onSubmit={handleUpdate}
-        className="relative bg-white dark:bg-blacksection dark:border-strokedark  border p-8 w-full max-w-xl rounded-xl shadow-lg dark:text-white"
+        className="bg-white dark:bg-black p-8 w-full max-w-xl rounded-xl shadow-lg"
       >
-        {/* X button */}
-        <button
-          type="button"
-          onClick={onCloseAction}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white cursor-pointer"
-          aria-label="Close"
-        >
-          <X size={20} />
-        </button>
-
-        <h2 className="text-xl font-bold mb-6 text-center text-orange-500">
+        <h2 className="text-xl font-bold mb-4 text-center text-orange-500">
           Edit Post
         </h2>
 
-        <div className="mb-4 space-y-3">
+        <div className="mt-4">
           <Label>Title</Label>
           <Input
-            className="rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
             required
           />
         </div>
 
-        <div className="mb-4 space-y-3">
+        <div className="mt-4">
           <Label>Detail</Label>
           <textarea
             value={form.detail}
             onChange={(e) => setForm({ ...form, detail: e.target.value })}
             required
-            rows={8}
-            className="w-full p-2 mt-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
+            rows={4}
+            className="w-full p-2 mt-1 rounded-md border dark:bg-gray-900 dark:text-white"
           />
         </div>
 
-        <div className="mb-4 space-y-3">
+        <div className="mt-4">
           <Label>New Image</Label>
           <Input
-            className="rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
             type="file"
             accept="image/*"
             onChange={(e) => setImage(e.target.files?.[0] || null)}
@@ -125,21 +112,21 @@ export default function EditPostModal({
 
         {previewUrl && (
           <Image
-            src={previewUrl}
-            alt="Preview"
-            width={128}
-            height={128}
-            className="object-cover rounded-lg mt-4 mx-auto"
-          />
+                     src={previewUrl}
+                     alt="Preview"
+                     width={128}
+                     height={128}
+                     className="object-cover rounded-lg mt-4 mx-auto"
+                   />
         )}
 
-        <div className="mt-6 flex justify-end gap-4 dark:text-white ">
-          <Button type="button" variant="outline" onClick={onCloseAction} className="hover:bg-gray-100 dark:hover:bg-gray-900 cursor-pointer">
+        <div className="mt-6 flex justify-end gap-4">
+          <Button type="button" variant="outline" onClick={onCloseAction}>
             Cancel
           </Button>
           <Button
             type="submit"
-            className="bg-orange-500 text-white hover:bg-orange-600 cursor-pointer"
+            className="bg-orange-500 text-white hover:bg-orange-600"
           >
             Update Post
           </Button>

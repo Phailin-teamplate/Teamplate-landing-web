@@ -82,7 +82,7 @@ export default function EditPostModal({
         <button
           type="button"
           onClick={onCloseAction}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white cursor-pointer"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white"
           aria-label="Close"
         >
           <X size={20} />
@@ -108,7 +108,7 @@ export default function EditPostModal({
             value={form.detail}
             onChange={(e) => setForm({ ...form, detail: e.target.value })}
             required
-            rows={8}
+            rows={4}
             className="w-full p-2 mt-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
           />
         </div>
@@ -139,7 +139,7 @@ export default function EditPostModal({
           </Button>
           <Button
             type="submit"
-            className="bg-orange-500 text-white hover:bg-orange-600 cursor-pointer"
+            className="bg-orange-500 text-white hover:bg-orange-600"
           >
             Update Post
           </Button>

@@ -95,7 +95,7 @@ export default function AddPostModal({
         <button
           type="button"
           onClick={onCloseAction}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white cursor-pointer"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white"
           aria-label="Close"
         >
           <X size={20} />

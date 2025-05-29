@@ -87,15 +87,15 @@ export default function AddPostModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 ">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <form
         onSubmit={handleAdd}
-    className="relative bg-white dark:bg-blacksection dark:border-strokedark  border p-8 w-full max-w-xl rounded-xl shadow-lg "
+    className="relative bg-white dark:bg-black p-8 w-full max-w-xl rounded-xl shadow-lg"
       >
         <button
           type="button"
           onClick={onCloseAction}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white cursor-pointer"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white"
           aria-label="Close"
         >
           <X size={20} />
@@ -104,31 +104,30 @@ export default function AddPostModal({
           Add New Post
         </h2>
 
-        <div className="mb-4 space-y-3 dark:text-white">
+        <div className="mb-4 space-y-3">
           <Label>Title</Label>
           <Input
-          className="rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
+          className="focus:ring-orange-500"
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
             required
           />
         </div>
 
-        <div className="mb-4 space-y-3 dark:text-white">
+        <div className="mb-4 space-y-3">
           <Label>Detail</Label>
           <textarea
             value={form.detail}
             onChange={(e) => setForm({ ...form, detail: e.target.value })}
             required
-            rows={8}
+            rows={4}
             className="w-full p-3 mt-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
           />
         </div>
 
-        <div className="mb-4 space-y-3 dark:text-white">
+        <div className="mb-4 space-y-3">
           <Label>Image</Label>
           <Input
-          className="rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-900 dark:text-white"
             type="file"
             accept="image/*"
             onChange={(e) => handleImageChange(e.target.files?.[0] || null)}
@@ -145,14 +144,14 @@ export default function AddPostModal({
           />
         )}
 
-        <div className="mt-6 flex justify-end gap-4 dark:text-white">
-          <Button type="button" variant="outline" onClick={onCloseAction} className="hover:bg-gray-100 dark:hover:bg-gray-900 cursor-pointer">
+        <div className="mt-6 flex justify-end gap-4">
+          <Button type="button" variant="outline" onClick={onCloseAction}>
             Cancel
           </Button>
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Adding..." : "Add Post"}
           </Button>
