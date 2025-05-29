@@ -41,7 +41,7 @@ const About = () => {
       <OurStory />
       <OurValues />
       <Partners />
-      <Activity showHero={false} limit={3} showMoreButton={true} />
+      <Activity showHero={false} limit={3} showMoreButton={true}/>
       <TeamSection />
       <MissionStatement />
     </section>

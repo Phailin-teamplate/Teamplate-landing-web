@@ -16,12 +16,14 @@ import {
 
 type ActivityProps = {
   showHero?: boolean;
+  showIntro?: boolean;
   limit?: number;
   showMoreButton?: boolean;
 };
 
 export default function Activity({
   showHero = true,
+  showIntro = false,
   limit,
   showMoreButton = false,
 }: ActivityProps) {
@@ -32,33 +34,30 @@ export default function Activity({
       setPosts(limit ? data.slice(0, limit) : data);
     });
   }, [limit]);
+const [currentPage, setCurrentPage] = useState(1);
+const postsPerPage = 12;
 
-  // Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 9;
+const totalPages = Math.ceil(posts.length / postsPerPage);
 
-  const totalPages = Math.ceil(posts.length / postsPerPage);
+const paginatedPosts =
+  posts.length > postsPerPage
+    ? posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
+    : posts;
 
-  const paginatedPosts =
-    posts.length > postsPerPage
-      ? posts.slice(
-          (currentPage - 1) * postsPerPage,
-          currentPage * postsPerPage
-        )
-      : posts;
 
   return (
     <div className="w-full">
       {showHero && (
         <PageHero
           title="Our Activity"
-          subtitle="  We’re always moving forward — exploring ideas, building impactful solutions, and celebrating milestones together."
+          subtitle="   We’re on a mission to simplify digital experiences for everyone
+                — startups, creators, and enterprises alike."
         />
       )}
 
       <section className="pb-10 pt-10 bg-muted/50 dark:bg-background border-t border-border dark:bg-blacksection dark:border-strokedark  border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-black dark:text-white ">
-   
+          {showIntro && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -70,15 +69,15 @@ export default function Activity({
                 Activity
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    At TEAMPLATE, we believe that progress is best shared. This space highlights the latest updates from our journey — whether it’s product improvements, company news, community involvement, or behind-the-scenes moments.
-
+                We’re on a mission to simplify digital experiences for everyone
+                — startups, creators, and enterprises alike.
               </p>
             </motion.div>
-     
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-            {paginatedPosts.map((post) => (
-              <Link href={`/activity/${post.id}`} key={post.id}>
+           {paginatedPosts.map((post) => (
+  <Link href={`/activity/${post.id}`} key={post.id}>
                 <div className="group flex flex-col h-full rounded-xl overflow-hidden shadow-md hover:shadow-xl transition bg-white dark:bg-blacksection dark:border-strokedark  border cursor-pointer">
                   {/* Image */}
                   <div className="relative w-full h-[300px]">
@@ -126,49 +125,47 @@ export default function Activity({
           )}
         </div>
       </section>
-      {/* Pagination */}
       {posts.length > postsPerPage && (
-        <Pagination className="my-6 flex justify-center cursor-pointer dark:text-white">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                className={
-                  currentPage === 1 ? "pointer-events-none opacity-50" : ""
-                }
-              />
-            </PaginationItem>
+  <Pagination className="my-6 flex justify-center cursor-pointer">
+    <PaginationContent>
+      <PaginationItem>
+        <PaginationPrevious
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+        />
+      </PaginationItem>
 
-            {[...Array(totalPages)].map((_, i) => (
-              <PaginationItem key={i}>
-                <button
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`px-3 py-1 rounded-md text-sm font-medium cursor-pointer ${
-                    currentPage === i + 1
-                      ? "bg-primary text-white"
-                      : "bg-muted text-gray-700 dark:text-white"
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              </PaginationItem>
-            ))}
+      {[...Array(totalPages)].map((_, i) => (
+        <PaginationItem key={i}>
+          <button
+            onClick={() => setCurrentPage(i + 1)}
+            className={`px-3 py-1 rounded-md text-sm font-medium ${
+              currentPage === i + 1
+                ? "bg-primary text-white"
+                : "bg-muted text-gray-700 dark:text-white"
+            }`}
+          >
+            {i + 1}
+          </button>
+        </PaginationItem>
+      ))}
 
-            <PaginationItem>
-              <PaginationNext
-                onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                }
-                className={
-                  currentPage === totalPages
-                    ? "pointer-events-none opacity-50"
-                    : ""
-                }
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      )}
+      <PaginationItem>
+        <PaginationNext
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
+          className={
+            currentPage === totalPages
+              ? "pointer-events-none opacity-50"
+              : ""
+          }
+        />
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+)}
+
     </div>
   );
 }

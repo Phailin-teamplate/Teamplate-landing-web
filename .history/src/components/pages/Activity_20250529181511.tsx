@@ -126,7 +126,6 @@ export default function Activity({
           )}
         </div>
       </section>
-      {/* Pagination */}
       {posts.length > postsPerPage && (
         <Pagination className="my-6 flex justify-center cursor-pointer dark:text-white">
           <PaginationContent>

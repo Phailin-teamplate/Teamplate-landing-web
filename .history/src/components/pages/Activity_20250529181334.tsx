@@ -32,8 +32,6 @@ export default function Activity({
       setPosts(limit ? data.slice(0, limit) : data);
     });
   }, [limit]);
-
-  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 9;
 
@@ -126,7 +124,6 @@ export default function Activity({
           )}
         </div>
       </section>
-      {/* Pagination */}
       {posts.length > postsPerPage && (
         <Pagination className="my-6 flex justify-center cursor-pointer dark:text-white">
           <PaginationContent>

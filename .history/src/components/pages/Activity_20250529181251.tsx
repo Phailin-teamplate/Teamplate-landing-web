@@ -16,12 +16,14 @@ import {
 
 type ActivityProps = {
   showHero?: boolean;
+  showIntro?: boolean;
   limit?: number;
   showMoreButton?: boolean;
 };
 
 export default function Activity({
   showHero = true,
+  showIntro = false,
   limit,
   showMoreButton = false,
 }: ActivityProps) {
@@ -32,8 +34,6 @@ export default function Activity({
       setPosts(limit ? data.slice(0, limit) : data);
     });
   }, [limit]);
-
-  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 9;
 
@@ -58,7 +58,7 @@ export default function Activity({
 
       <section className="pb-10 pt-10 bg-muted/50 dark:bg-background border-t border-border dark:bg-blacksection dark:border-strokedark  border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-black dark:text-white ">
-   
+          {showIntro && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -70,11 +70,11 @@ export default function Activity({
                 Activity
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    At TEAMPLATE, we believe that progress is best shared. This space highlights the latest updates from our journey — whether it’s product improvements, company news, community involvement, or behind-the-scenes moments.
+                    At [Your Company Name], we believe that progress is best shared. This space highlights the latest updates from our journey — whether it’s product improvements, company news, community involvement, or behind-the-scenes moments.
 
               </p>
             </motion.div>
-     
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
             {paginatedPosts.map((post) => (
@@ -126,7 +126,6 @@ export default function Activity({
           )}
         </div>
       </section>
-      {/* Pagination */}
       {posts.length > postsPerPage && (
         <Pagination className="my-6 flex justify-center cursor-pointer dark:text-white">
           <PaginationContent>

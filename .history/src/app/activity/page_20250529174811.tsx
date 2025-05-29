@@ -7,6 +7,6 @@ export const metadata = {
 };
 
 export default function ActivityPage() {
-  return <Activity showHero={true}/>;
+  return <Activity showHero={true} showIntro={false}/>;
 }
 
